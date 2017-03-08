@@ -1,0 +1,24 @@
+---
+- name: install packages
+  with_items: "{{ postgresql_packages }}"
+  pkgng:
+    name: "{{ item.name }}"
+  notify:
+    - restart postgresql
+
+- name: enable postgresql service
+  template:
+    src: postgresql.j2
+    dest: /etc/rc.conf.d/postgresql
+  notify:
+    - restart postgresql
+
+- name: initialize DB
+  command: /usr/local/etc/rc.d/postgresql initdb
+  args:
+    creates: "/var/db/postgres/data{{ postgresql_version }}"
+
+- name: start service
+  service:
+    name: postgresql
+    state: started
