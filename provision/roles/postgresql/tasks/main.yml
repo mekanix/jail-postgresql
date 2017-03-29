@@ -14,9 +14,9 @@
     - restart postgresql
 
 - name: initialize DB
-  command: /usr/local/etc/rc.d/postgresql initdb
+  command: service postgresql initdb
   args:
-    creates: "/var/db/postgres/data{{ postgresql_version }}"
+    creates: "/usr/local/pgsql/data"
 
 - name: start service
   service:

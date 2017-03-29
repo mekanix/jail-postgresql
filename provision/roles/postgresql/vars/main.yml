@@ -1,4 +1,4 @@
 ---
-postgresql_version: 96
+postgresql_version: 93
 postgresql_packages:
   - name: "postgresql{{ postgresql_version }}-server"
