@@ -18,6 +18,13 @@
   args:
     creates: "/usr/local/pgsql/data"
 
+- name: configure pg_hba
+  template:
+    src: pg_hba.conf.j2
+    dest: /usr/local/pgsql/data/pg_hba.conf
+  notify:
+    - restart postgresql
+
 - name: start service
   service:
     name: postgresql
