@@ -1,8 +1,8 @@
 *.retry
-provision/group_vars/all
-provision/inventory/localhost
+build
+provision/group_vars
+provision/inventory
 provision/site.yml
 provision/teardown.yml
 cbsd.conf
-postgresql.img
 vars.mk
