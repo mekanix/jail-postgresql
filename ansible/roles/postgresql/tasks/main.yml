@@ -16,12 +16,13 @@
 - name: initialize DB
   command: service postgresql initdb
   args:
-    creates: "/usr/local/pgsql/data"
+    creates: "/var/db/postgres/data{{ postgresql_version }}"
+    warn: False
 
 - name: configure pg_hba
   template:
     src: pg_hba.conf.j2
-    dest: /usr/local/pgsql/data/pg_hba.conf
+    dest: /var/db/postgres/data{{ postgresql_version }}/pg_hba.conf
   notify:
     - restart postgresql
 

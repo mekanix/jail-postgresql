@@ -1,8 +1,11 @@
-*.retry
-build
-provision/group_vars
-provision/inventory
-provision/site.yml
-provision/teardown.yml
+.provisioned
+ansible/group_vars/all
+ansible/inventory/inventory
+ansible/roles/*
+ansible/site.yml
+!ansible/roles/.keep
+!ansible/roles/postgresql
+build/
 cbsd.conf
+site.retry
 vars.mk

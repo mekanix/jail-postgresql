@@ -1,2 +1,0 @@
-project: PROJECT
-domain: DOMAIN
