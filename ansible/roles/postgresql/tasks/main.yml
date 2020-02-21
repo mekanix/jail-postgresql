@@ -26,6 +26,22 @@
   notify:
     - restart postgresql
 
+- name: configure postgresql.conf
+  template:
+    src: postgresql.conf.j2
+    dest: /var/db/postgres/data{{ postgresql_version }}/postgresql.conf
+  notify:
+    - restart postgresql
+
+- name: create wal directory
+  file:
+    path: /var/cache/postgresql
+    owner: postgres
+    group: postgres
+    state: directory
+  notify:
+    - restart postgresql
+
 - name: start service
   service:
     name: postgresql
