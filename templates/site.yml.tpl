@@ -6,4 +6,4 @@
   hosts: SERVICE
   roles:
     - onelove-roles.freebsd-common
-    - postgresql
+    - onelove-roles.freebsd_postgresql

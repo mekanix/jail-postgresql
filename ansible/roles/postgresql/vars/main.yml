@@ -1,5 +1,0 @@
----
-postgresql_version: 14
-postgresql_packages:
-  - name: "postgresql{{ postgresql_version }}-contrib"
-  - name: "postgresql{{ postgresql_version }}-server"
